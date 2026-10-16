@@ -94,6 +94,7 @@ export default function Home() {
           <div>
             <h2>{spa.title}</h2>
             <p>{spa.intro}</p>
+            <p className="hours">{spa.hours}</p>
             <SpaMenu categories={spa.categories} />
             <a
               className="btn"

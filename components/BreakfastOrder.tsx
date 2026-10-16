@@ -34,7 +34,7 @@ export default function BreakfastOrder({
     d.setDate(d.getDate() + 1);
     setMinDate(d.toLocaleDateString("en-CA")); // YYYY-MM-DD, local time
   }, []);
-
+  const ready = name.trim() !== "" && date !== "";
   const changePax = (n: number) => {
     const v = Math.min(maxPax, Math.max(1, n));
     setPax(v);
@@ -45,7 +45,7 @@ export default function BreakfastOrder({
 
   const message = [
     `Hello ${villaName}, I'd like to order breakfast.`,
-    name && `Name: ${name}`,
+    `Name: ${name.trim()}`,
     `Date: ${date}`,
     `Time: ${time}`,
     `Guests: ${pax}`,
@@ -68,7 +68,8 @@ export default function BreakfastOrder({
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Optional"
+            placeholder="Input Your name"
+            required
           />
         </label>
         <label>
@@ -155,14 +156,16 @@ export default function BreakfastOrder({
         href={href}
         target="_blank"
         rel="noreferrer"
-        aria-disabled={!date}
+        aria-disabled={!ready}
         onClick={(e) => {
-          if (!date) e.preventDefault();
+          if (!ready) e.preventDefault();
         }}
       >
         Send order via WhatsApp
       </a>
-      {!date && <p className="hint">Please choose a date first.</p>}
+      {!ready && (
+        <p className="hint">Please enter your name and choose a date.</p>
+      )}
     </div>
   );
 }

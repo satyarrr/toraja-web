@@ -624,3 +624,8 @@ footer {
   border-style: dashed;
   justify-content: center;
 }
+
+.hours {
+  font-weight: 600;
+  color: var(--accent);
+}

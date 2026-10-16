@@ -75,6 +75,7 @@ export const spa = {
   intro:
     "Massages, facials, and beauty treatments in the comfort of your villa, by experienced local therapists.",
   image: "/images/spa.jpg",
+  hours: "Open daily, 8 AM – 8 PM",
   categories: [
     {
       id: "body",
