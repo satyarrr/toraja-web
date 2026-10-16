@@ -10,7 +10,7 @@ export default function Carousel({ slides }: { slides: Slide[] }) {
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(() => setI((p) => (p + 1) % slides.length), 5500);
+    const t = setInterval(() => setI((p) => (p + 1) % slides.length), 3000);
     return () => clearInterval(t);
   }, [paused, slides.length]);
 
