@@ -25,7 +25,9 @@ export default function Carousel({ slides }: { slides: Slide[] }) {
         <div
           key={n}
           className={`slide ${n === i ? "active" : ""}`}
-          style={{ backgroundImage: `linear-gradient(rgba(10,25,20,.45),rgba(10,25,20,.55)), url(${s.image})` }}
+          style={{
+            backgroundImage: `linear-gradient(rgba(10,25,20,.45),rgba(10,25,20,.55)), url(${s.image})`,
+          }}
           aria-hidden={n !== i}
         >
           <div className="slide-text">
@@ -34,11 +36,28 @@ export default function Carousel({ slides }: { slides: Slide[] }) {
           </div>
         </div>
       ))}
-      <button className="arrow left" onClick={() => go(i - 1)} aria-label="Sebelumnya">‹</button>
-      <button className="arrow right" onClick={() => go(i + 1)} aria-label="Berikutnya">›</button>
+      <button
+        className="arrow left"
+        onClick={() => go(i - 1)}
+        aria-label="Sebelumnya"
+      >
+        ‹
+      </button>
+      <button
+        className="arrow right"
+        onClick={() => go(i + 1)}
+        aria-label="Berikutnya"
+      >
+        ›
+      </button>
       <div className="dots">
         {slides.map((_, n) => (
-          <button key={n} className={n === i ? "on" : ""} onClick={() => go(n)} aria-label={`Slide ${n + 1}`} />
+          <button
+            key={n}
+            className={n === i ? "on" : ""}
+            onClick={() => go(n)}
+            aria-label={`Slide ${n + 1}`}
+          />
         ))}
       </div>
     </section>
